@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore psychotherapy and counseling services offered by Abdulfatah Khamis — individual, group, family, and online therapy, plus NGO consulting." />
+  <title>Services | Zanzibar MindCare — Psychotherapy & Counseling</title>
+
+    <!-- Google Fonts: Playfair Display + Source Serif 4 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /**
+     * COLOUR PALETTE — Calming · Trusted · Scholarly
+     * ─────────────────────────────────────────────────
+     * slate-deep   #1E2D40   headings, nav base
+     * slate-mid    #2F4563   body text
+     * slate-light  #4A6FA5   links, accents
+     * earth-warm   #8B6F47   warm accent
+     * cream-bg     #F5F0E8   alternate sections
+     * sand-light   #EDE5D4   borders, dividers
+     * off-white    #FAFAF7   page background
+     * crisis-red   #C0392B   emergency banner ONLY
+     *
+     * All contrast ratios pass WCAG AA (≥ 4.5 : 1)
+     */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'slate-deep':  '#1E2D40',
+            'slate-mid':   '#2F4563',
+            'slate-light': '#4A6FA5',
+            'earth-warm':  '#8B6F47',
+            'cream-bg':    '#F5F0E8',
+            'sand-light':  '#EDE5D4',
+            'off-white':   '#FAFAF7',
+            'crisis-red':  '#C0392B',
+            'crisis-bg':   '#FDF0EE',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            body:    ['"Source Serif 4"',   'Georgia', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+    <!-- ── Global Styles ── -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Source Serif 4", Georgia, serif;
+      background: #FAFAF7;
+      color: #2F4563;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute; top: -120%; left: 1rem;
+      background: #1E2D40; color: #fff;
+      padding: .5rem 1rem; border-radius: 0 0 6px 6px;
+      font-size: .875rem; z-index: 9999;
+      transition: top .2s; text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Focus ring */
+    :focus-visible { outline: 3px solid #4A6FA5; outline-offset: 3px; border-radius: 3px; }
+
+    /* Type scale */
+    h1,h2,h3,h4 { font-family:"Playfair Display",Georgia,serif; color:#1E2D40; line-height:1.25; }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.45rem); }
+    p  { margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+    a  { color:#4A6FA5; text-decoration:underline; text-underline-offset:3px; transition:color .2s; }
+    a:hover { color:#2F4563; }
+
+    /* Section spacing */
+    .section-pad { padding: 5rem 1.5rem; }
+    @media(min-width:768px)  { .section-pad { padding: 6rem 2rem; } }
+    @media(min-width:1024px) { .section-pad { padding: 7rem 2rem; } }
+
+    /* Decorative rule */
+    .divider {
+      width:56px; height:3px;
+      background: linear-gradient(90deg,#4A6FA5,#8B6F47);
+      border-radius:2px; margin:1rem 0 1.75rem;
+    }
+    .divider.center { margin:1rem auto 1.75rem; }
+
+    /* Credential pill */
+    .pill {
+      display:inline-block;
+      background:#EDE5D4; color:#2F4563;
+      font-size:.72rem; letter-spacing:.08em;
+      padding:.25rem .75rem; border-radius:99px;
+      text-transform:uppercase; margin:.2rem .15rem;
+      font-family:"Source Serif 4",serif;
+    }
+    .pill-dark {
+      background:rgba(255,255,255,.12);
+      color:#C8D5E3;
+    }
+
+    /* ── Navigation ── */
+    #nav {
+      background:#FAFAF7;
+      position:sticky; top:0; z-index:200;
+      box-shadow:0 2px 20px rgba(30,45,64,.10);
+      transition:box-shadow .3s;
+    }
+    #nav.scrolled { box-shadow:0 4px 28px rgba(30,45,64,.18); }
+
+    .logo-name {
+      font-family:"Playfair Display",serif;
+      font-size:1.15rem; font-weight:700;
+      color:#1E2D40; text-decoration:none; line-height:1.2;
+    }
+    .logo-sub {
+      display:block; font-size:.67rem;
+      color:#8B6F47; letter-spacing:.12em;
+      text-transform:uppercase; font-family:"Source Serif 4",serif;
+    }
+
+    /* Desktop nav link */
+    .nl {
+      font-family:"Source Serif 4",serif; font-size:.875rem;
+      color:#2F4563; text-decoration:none;
+      padding:.35rem .75rem; border-radius:4px;
+      transition:color .2s,background .2s; position:relative;
+      background:none; border:none; cursor:pointer;
+    }
+    .nl::after {
+      content:''; position:absolute;
+      bottom:-2px; left:.75rem; right:.75rem;
+      height:2px; background:#4A6FA5; border-radius:1px;
+      transform:scaleX(0); transform-origin:left; transition:transform .25s;
+    }
+    .nl:hover,
+    .nl[aria-current="page"] { color:#1E2D40; background:#F5F0E8; }
+    .nl:hover::after,
+    .nl[aria-current="page"]::after { transform:scaleX(1); }
+
+    /* Dropdown */
+    .drop { position:relative; }
+    .drop-btn { display:flex; align-items:center; gap:.3rem; }
+    .drop-btn svg { width:13px;height:13px;stroke:#4A6FA5;transition:transform .25s;flex-shrink:0; }
+    .drop-btn[aria-expanded="true"] svg { transform:rotate(180deg); }
+
+    .drop-menu {
+      position:absolute; top:calc(100% + 8px); left:0;
+      background:#FAFAF7; border:1px solid #EDE5D4;
+      border-radius:8px; box-shadow:0 8px 32px rgba(30,45,64,.14);
+      min-width:220px; padding:.5rem 0;
+      opacity:0; visibility:hidden; transform:translateY(-6px);
+      transition:opacity .22s,transform .22s,visibility .22s; z-index:300;
+    }
+    .drop-btn[aria-expanded="true"] + .drop-menu {
+      opacity:1; visibility:visible; transform:translateY(0);
+    }
+    .di {
+      display:block; padding:.58rem 1.2rem;
+      font-family:"Source Serif 4",serif; font-size:.875rem;
+      color:#2F4563; text-decoration:none; transition:background .15s,color .15s;
+    }
+    .di:hover { background:#F5F0E8; color:#1E2D40; }
+    .ddivider { height:1px; background:#EDE5D4; margin:.35rem 1.2rem; }
+
+    /* Mobile */
+    #mob { display:none; background:#FAFAF7; border-top:1px solid #EDE5D4; padding:1rem 1.5rem 1.5rem; }
+    #mob.open { display:block; }
+    .mlink {
+      display:block; font-family:"Source Serif 4",serif; font-size:1rem;
+      color:#2F4563; text-decoration:none;
+      padding:.7rem 0; border-bottom:1px solid #EDE5D4; transition:color .2s;
+    }
+    .mlink:last-child { border-bottom:none; }
+    .mlink:hover { color:#4A6FA5; }
+    .msub { padding-left:1rem; border-left:2px solid #EDE5D4; margin:.25rem 0 .5rem; }
+    .msub .mlink { font-size:.9375rem; padding:.45rem 0; color:#4A6FA5; }
+    .msublabel {
+      font-size:.68rem; text-transform:uppercase; letter-spacing:.12em;
+      color:#8B6F47; font-family:"Source Serif 4",serif; margin:1rem 0 .2rem;
+    }
+    #hbg {
+      background:none; border:none; cursor:pointer;
+      padding:.5rem; border-radius:4px;
+      display:flex; flex-direction:column; gap:5px;
+    }
+    #hbg:hover { background:#EDE5D4; }
+    #hbg span {
+      display:block; width:24px; height:2px;
+      background:#1E2D40; border-radius:1px;
+      transition:all .3s cubic-bezier(.4,0,.2,1); transform-origin:center;
+    }
+    #hbg[aria-expanded="true"] span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    #hbg[aria-expanded="true"] span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    #hbg[aria-expanded="true"] span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    /* Buttons */
+    .btn {
+      display:inline-flex; align-items:center; gap:.5rem;
+      font-family:"Source Serif 4",serif; font-size:.9375rem; font-weight:600;
+      padding:.72rem 1.75rem; border-radius:6px;
+      text-decoration:none; border:2px solid transparent;
+      transition:background .22s,color .22s,box-shadow .22s; cursor:pointer;
+    }
+    .btn-blue  { background:#4A6FA5; color:#FAFAF7; }
+    .btn-blue:hover  { background:#2F4563; color:#FAFAF7; box-shadow:0 4px 16px rgba(74,111,165,.35); }
+    .btn-ring  { background:transparent; color:#4A6FA5; border-color:#4A6FA5; }
+    .btn-ring:hover  { background:#4A6FA5; color:#FAFAF7; }
+    .btn-ghost { background:transparent; color:#FAFAF7; border-color:rgba(255,255,255,.55); }
+    .btn-ghost:hover { background:rgba(255,255,255,.1); border-color:#fff; color:#fff; }
+
+    /* ── Hero ── */
+    #hero {
+      background:linear-gradient(135deg,#1E2D40 0%,#2F4563 60%,#3D5A7A 100%);
+      position:relative; overflow:hidden;
+    }
+    #hero::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background:
+        radial-gradient(ellipse at 72% 28%, rgba(74,111,165,.28) 0%,transparent 60%),
+        radial-gradient(ellipse at 18% 82%, rgba(139,111,71,.18) 0%,transparent 50%);
+    }
+
+    /* Stat cards inside hero */
+    .stat {
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:12px; padding:1.2rem 1.4rem; text-align:center;
+    }
+    .stat-n {
+      font-family:"Playfair Display",serif;
+      font-size:2rem; font-weight:700; color:#FAFAF7; line-height:1;
+    }
+    .stat-l { font-size:.78rem; color:#9BB3CC; margin-top:.3rem; }
+
+    /* ── Service / Feature cards ── */
+    .card {
+      background:#FAFAF7; border:1px solid #EDE5D4; border-radius:12px;
+      padding:2rem; display:flex; flex-direction:column;
+      transition:box-shadow .3s,transform .3s;
+    }
+    .card:hover { box-shadow:0 8px 32px rgba(30,45,64,.14); transform:translateY(-3px); }
+    .card-icon {
+      width:48px; height:48px; border-radius:12px;
+      background:linear-gradient(135deg,#EDE5D4,#F5F0E8);
+      display:flex; align-items:center; justify-content:center; margin-bottom:1.25rem;
+    }
+    .card-icon svg { width:24px; height:24px; stroke:#4A6FA5; }
+
+    /* ── Timeline (education) ── */
+    .tl { position:relative; padding-left:2rem; padding-bottom:2rem; }
+    .tl::before {
+      content:''; position:absolute; left:0; top:6px; bottom:0;
+      width:2px; background:linear-gradient(180deg,#4A6FA5,#EDE5D4);
+    }
+    .tl::after {
+      content:''; position:absolute; left:-4px; top:6px;
+      width:10px; height:10px; border-radius:50%;
+      background:#4A6FA5; border:2px solid #FAFAF7;
+      box-shadow:0 0 0 2px #4A6FA5;
+    }
+    .tl:last-child::before { display:none; }
+
+    /* ── Affiliation badge ── */
+    .badge {
+      display:inline-flex; align-items:center; gap:.45rem;
+      background:#F5F0E8; border:1px solid #EDE5D4;
+      border-radius:8px; padding:.45rem .9rem;
+      font-size:.8rem; color:#2F4563;
+      font-family:"Source Serif 4",serif; margin:.2rem;
+    }
+    .badge svg { width:13px; height:13px; stroke:#8B6F47; flex-shrink:0; }
+
+    /* ── Publication card ── */
+    .pub {
+      border-left:3px solid #4A6FA5; padding:1.2rem 1.5rem;
+      background:#FAFAF7; border-radius:0 8px 8px 0; margin-bottom:1rem;
+    }
+
+    /* ── Contact form inputs ── */
+    .finput {
+      width:100%; padding:.7rem 1rem;
+      background:#FAFAF7; border:1.5px solid #C8D5E3;
+      border-radius:6px; font-family:"Source Serif 4",serif;
+      font-size:.9375rem; color:#2F4563;
+      transition:border-color .2s,box-shadow .2s;
+    }
+    .finput:focus { outline:none; border-color:#4A6FA5; box-shadow:0 0 0 3px rgba(74,111,165,.15); }
+    .flabel {
+      display:block; font-size:.875rem; color:#1E2D40;
+      font-weight:600; margin-bottom:.4rem;
+      font-family:"Source Serif 4",serif;
+    }
+
+    /* ── Crisis banner ── */
+    #crisis { background:#FDF0EE; border-top:3px solid #C0392B; }
+
+    /* ── Footer ── */
+    footer { background:#1E2D40; color:#C8D5E3; }
+    .fh { font-family:"Playfair Display",serif; font-size:1rem; font-weight:700; color:#FAFAF7; margin-bottom:1rem; }
+    .fl { display:block; font-size:.875rem; color:#9BB3CC; text-decoration:none; margin-bottom:.5rem; transition:color .2s; }
+    .fl:hover { color:#FAFAF7; }
+    .slink {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:38px; height:38px;
+      background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
+      border-radius:8px; color:#9BB3CC; text-decoration:none;
+      transition:background .2s,color .2s,border-color .2s;
+    }
+    .slink:hover { background:rgba(74,111,165,.35); border-color:#4A6FA5; color:#FAFAF7; }
+    .slink svg { width:18px; height:18px; }
+    .disc { font-size:.8rem; color:#7A95AD; line-height:1.65; }
+    .disc strong { color:#9BB3CC; }
+    .hrdim { border:none; height:1px; background:rgba(255,255,255,.06); margin:0; }
+
+    /* Fade-up entrance */
+    .fu { opacity:0; transform:translateY(22px); transition:opacity .6s,transform .6s; }
+    .fu.in { opacity:1; transform:none; }
+  </style>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ── Skip link (keyboard / screen reader) ── -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+
+<!-- ════════════════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════════════════ -->
+<header role="banner">
+<nav id="nav" aria-label="Primary navigation">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-[72px]">
+
+  <!-- Logo -->
+  <a href="index.html" class="logo-name" aria-label="Zanzibar MindCare — Home">
+    Zanzibar MindCare
+    <span class="logo-sub">Abdulfatah Khamis</span>
+  </a>
+
+  <!-- Desktop links -->
+  <ul class="hidden lg:flex items-center gap-1 list-none m-0 p-0" role="list">
+
+    <li><a href="index.html"  class="nl" aria-current="page">Home</a></li>
+    <li><a href="about.html" class="nl">About</a></li>
+
+    <!-- Psychotherapy dropdown -->
+    <li class="drop">
+      <button class="nl drop-btn" aria-haspopup="true" aria-expanded="false"
+              aria-controls="dd1" id="ddbtn1">
+        Psychotherapy &amp; Counseling
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <ul class="drop-menu" id="dd1" role="menu" aria-labelledby="ddbtn1">
+        <li role="none"><a href="services.html" class="di" role="menuitem">Individual Therapy</a></li>
+        <li role="none"><a href="services.html" class="di" role="menuitem">Trauma &amp; PTSD</a></li>
+        <li role="none"><a href="services.html" class="di" role="menuitem">GBV Survivor Support</a></li>
+        <li role="none"><a href="services.html" class="di" role="menuitem">Cross-Cultural Counseling</a></li>
+        <li role="none"><a href="services.html" class="di" role="menuitem">Online Therapy (Worldwide)</a></li>
+        <li role="none"><div class="ddivider" role="separator"></div></li>
+        <li role="none"><a href="contact.html"       class="di" role="menuitem">Book a Session</a></li>
+      </ul>
+    </li>
+
+    <!-- Academic dropdown -->
+    <li class="drop">
+      <button class="nl drop-btn" aria-haspopup="true" aria-expanded="false"
+              aria-controls="dd2" id="ddbtn2">
+        Academic &amp; Research
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <ul class="drop-menu" id="dd2" role="menu" aria-labelledby="ddbtn2">
+        <li role="none"><a href="research.html" class="di" role="menuitem">Publications</a></li>
+        <li role="none"><a href="research.html" class="di" role="menuitem">Research Interests</a></li>
+        <li role="none"><a href="research.html" class="di" role="menuitem">Teaching &amp; Supervision</a></li>
+        <li role="none"><a href="research.html" class="di" role="menuitem">Scholarship Consultation</a></li>
+        <li role="none"><a href="research.html" class="di" role="menuitem">Internship Facilitation</a></li>
+        <li role="none"><div class="ddivider" role="separator"></div></li>
+        <li role="none"><a href="contact.html"  class="di" role="menuitem">Collaboration Enquiries</a></li>
+      </ul>
+    </li>
+
+    <!-- Institutional dropdown -->
+    <li class="drop">
+      <button class="nl drop-btn" aria-haspopup="true" aria-expanded="false"
+              aria-controls="dd3" id="ddbtn3">
+        Institutional &amp; NGO
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <ul class="drop-menu" id="dd3" role="menu" aria-labelledby="ddbtn3">
+        <li role="none"><a href="services.html#institutional" class="di" role="menuitem">Consulting &amp; Advisory</a></li>
+        <li role="none"><a href="services.html#institutional" class="di" role="menuitem">Workshops &amp; Training</a></li>
+        <li role="none"><a href="services.html#institutional" class="di" role="menuitem">Psychosocial Programme Design</a></li>
+        <li role="none"><a href="services.html#institutional" class="di" role="menuitem">MHPSS for NGOs &amp; INGOs</a></li>
+        <li role="none"><div class="ddivider" role="separator"></div></li>
+        <li role="none"><a href="contact.html"       class="di" role="menuitem">Partnerships</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="contact.html" class="btn btn-blue ml-3"
+         style="text-decoration:none;padding:.55rem 1.25rem;">Contact</a>
+    </li>
+  </ul>
+
+  <!-- Hamburger -->
+  <button id="hbg" class="lg:hidden" aria-expanded="false"
+          aria-controls="mob" aria-label="Toggle navigation menu">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </button>
+</div>
+</div>
+
+<!-- Mobile drawer -->
+<div id="mob" role="navigation" aria-label="Mobile navigation">
+  <ul class="list-none m-0 p-0" role="list">
+    <li><a href="index.html"  class="mlink">Home</a></li>
+    <li><a href="about.html" class="mlink">About</a></li>
+
+    <li>
+      <p class="msublabel">Psychotherapy &amp; Counseling</p>
+      <ul class="msub list-none p-0">
+        <li><a href="services.html" class="mlink">Individual Therapy</a></li>
+        <li><a href="services.html" class="mlink">Trauma &amp; PTSD</a></li>
+        <li><a href="services.html" class="mlink">GBV Survivor Support</a></li>
+        <li><a href="services.html" class="mlink">Cross-Cultural Counseling</a></li>
+        <li><a href="services.html" class="mlink">Online Therapy</a></li>
+      </ul>
+    </li>
+    <li>
+      <p class="msublabel">Academic &amp; Research</p>
+      <ul class="msub list-none p-0">
+        <li><a href="research.html" class="mlink">Publications</a></li>
+        <li><a href="research.html" class="mlink">Research Interests</a></li>
+        <li><a href="research.html" class="mlink">Teaching &amp; Supervision</a></li>
+      </ul>
+    </li>
+    <li>
+      <p class="msublabel">Institutional &amp; NGO Services</p>
+      <ul class="msub list-none p-0">
+        <li><a href="services.html#institutional" class="mlink">Consulting &amp; Advisory</a></li>
+        <li><a href="services.html#institutional" class="mlink">Workshops &amp; Training</a></li>
+        <li><a href="services.html#institutional" class="mlink">Programme Design</a></li>
+      </ul>
+    </li>
+    <li class="mt-4">
+      <a href="contact.html" class="btn btn-blue w-full justify-center"
+         style="text-decoration:none;">Contact Abdulfatah</a>
+    </li>
+  </ul>
+</div>
+
+</nav>
+</header>
+
+
+<!-- ════════════════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════════════ -->
+<main id="main" tabindex="-1">
+
+
+<main id="main" tabindex="-1">
+  <!-- ── PSYCHOTHERAPY ─────────────────────────────────── -->
+  <section id="psychotherapy" class="section-pad" style="background:#F5F0E8;" aria-labelledby="psych-h">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 fu">
+        <p style="color:#8B6F47;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;">Clinical Practice</p>
+        <h2 id="psych-h" class="mt-1">Psychotherapy &amp; Counseling Services</h2>
+        <div class="divider center"></div>
+        <p class="max-w-2xl mx-auto" style="color:#2F4563;">
+          Evidence-based, culturally sensitive psychotherapy delivered with compassion —
+          in Zanzibar and online for clients worldwide.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+
+        <!-- Individual Therapy -->
+        <article class="card fu">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3 class="mb-2">Individual Therapy</h3>
+          <p style="font-size:.9rem;color:#2F4563;margin-bottom:.75rem;">
+            Personalised one-on-one psychotherapy tailored to your unique needs, delivered in a safe, confidential, and non-judgmental space.
+          </p>
+          <ul class="space-y-1" style="font-size:.85rem;color:#2F4563;padding-left:1.1rem;">
+            <li>Anxiety &amp; depression counseling</li>
+            <li>Grief &amp; loss support</li>
+            <li>Life transitions &amp; personal growth</li>
+            <li>Trauma &amp; PTSD therapy (CBT, TF-CBT)</li>
+            <li>Stress management &amp; burnout recovery</li>
+            <li>GBV survivor psychosocial support</li>
+            <li>Cross-cultural &amp; identity counseling</li>
+          </ul>
+        </article>
+
+        <!-- Group Therapy -->
+        <article class="card fu" style="transition-delay:.1s;">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="mb-2">Group Therapy</h3>
+          <p style="font-size:.9rem;color:#2F4563;margin-bottom:.75rem;">
+            Structured therapeutic group sessions that foster shared healing, peer support, and community resilience in a guided environment.
+          </p>
+          <ul class="space-y-1" style="font-size:.85rem;color:#2F4563;padding-left:1.1rem;">
+            <li>Psychoeducation &amp; mental health awareness groups</li>
+            <li>Trauma recovery support groups</li>
+            <li>GBV survivor group sessions</li>
+            <li>Stigma reduction &amp; community healing circles</li>
+            <li>Youth mental health groups</li>
+            <li>Stress &amp; coping skills workshops</li>
+          </ul>
+        </article>
+
+        <!-- Family Therapy -->
+        <article class="card fu" style="transition-delay:.2s;">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3 class="mb-2">Family Therapy</h3>
+          <p style="font-size:.9rem;color:#2F4563;margin-bottom:.75rem;">
+            Culturally sensitive family counseling that strengthens communication, resolves conflict, and restores healthy relational dynamics within families.
+          </p>
+          <ul class="space-y-1" style="font-size:.85rem;color:#2F4563;padding-left:1.1rem;">
+            <li>Family conflict resolution &amp; mediation</li>
+            <li>Parent–child relationship counseling</li>
+            <li>Domestic violence recovery support</li>
+            <li>Grief &amp; bereavement for families</li>
+            <li>Parenting skills &amp; child development guidance</li>
+            <li>Blended &amp; cross-cultural family counseling</li>
+          </ul>
+        </article>
+
+        <!-- Online Therapy -->
+        <article class="card fu" style="transition-delay:.3s;">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="mb-2">Online Therapy</h3>
+          <p style="font-size:.9rem;color:#2F4563;margin-bottom:.75rem;">
+            Secure, confidential teletherapy for clients worldwide — bringing professional psychological support to your home, wherever you are.
+          </p>
+          <ul class="space-y-1" style="font-size:.85rem;color:#2F4563;padding-left:1.1rem;">
+            <li>Individual online counseling sessions</li>
+            <li>Virtual couples &amp; family therapy</li>
+            <li>Online group therapy &amp; workshops</li>
+            <li>Mental health support for the Tanzanian diaspora</li>
+            <li>Cross-cultural &amp; international student counseling</li>
+            <li>Flexible scheduling across time zones</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="contact.html" class="btn btn-blue">Book a Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INSTITUTIONAL ─────────────────────────────────── -->
+  <section id="institutional" class="section-pad" style="background:#F5F0E8;" aria-labelledby="inst-h">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 fu">
+        <p style="color:#8B6F47;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;">Organisations &amp; NGOs</p>
+        <h2 id="inst-h" class="mt-1">Institutional &amp; NGO Services</h2>
+        <div class="divider center"></div>
+        <p class="max-w-2xl mx-auto" style="color:#2F4563;">
+          Partnering with governments, NGOs, INGOs, and academic institutions to build
+          sustainable, culturally grounded mental health systems.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <article class="card fu">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <h3 class="mb-2">Consulting &amp; Advisory</h3>
+          <p style="font-size:.9rem;color:#2F4563;">
+            Strategic mental health advisory for ministries, NGOs, and health systems.
+            Experienced working with USAID, Jhpiego, and the Zanzibar Ministry of Health.
+          </p>
+        </article>
+
+        <article class="card fu" style="transition-delay:.1s;">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="mb-2">Workshops &amp; Training</h3>
+          <p style="font-size:.9rem;color:#2F4563;">
+            Capacity-building workshops in MHPSS, trauma-informed practice, CBT,
+            counseling ethics, and staff resilience for frontline health workers,
+            social workers, and educators.
+          </p>
+        </article>
+
+        <article class="card fu" style="transition-delay:.2s;">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3 class="mb-2">Psychosocial Programme Design</h3>
+          <p style="font-size:.9rem;color:#2F4563;">
+            End-to-end design and implementation of community mental health programmes,
+            GBV response systems, and integrated psychosocial support services —
+            evidence-based and locally contextualised.
+          </p>
+        </article>
+
+        <article class="card fu" style="transition-delay:.3s;">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3 class="mb-2">MHPSS for NGOs &amp; INGOs</h3>
+          <p style="font-size:.9rem;color:#2F4563;">
+            Mental Health and Psychosocial Support integration into humanitarian and
+            development programmes. Specialised in African contexts, stigma reduction,
+            and cross-cultural approaches.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="contact.html" class="btn btn-blue">Discuss a Partnership</a>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer role="contentinfo">
+
+  <!-- ── Crisis & Emergency Banner ───────────────────────
+       Permanently visible at the top of the footer.
+       Numbers: Tanzania 112, Zanzibar Police 116,
+                Türkiye crisis 182, international 988
+  ──────────────────────────────────────────────────────── -->
+  <section id="crisis" aria-label="Crisis and emergency help" role="complementary">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <span class="flex items-center justify-center w-10 h-10 rounded-full border-2"
+                style="background:#FFE5E2;border-color:#C0392B;" aria-hidden="true">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+                 stroke="#C0392B" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </span>
+          <p style="font-family:'Playfair Display',serif;font-weight:700;color:#C0392B;font-size:1rem;line-height:1.2;">
+            Crisis &amp; Emergency Help
+          </p>
+        </div>
+
+        <div>
+          <p style="font-size:.875rem;color:#2F4563;">
+            If you or someone you know is in immediate danger or experiencing a mental
+            health crisis, please contact emergency services now.
+          </p>
+          <div class="flex flex-wrap gap-x-5 gap-y-1 mt-2">
+
+            <a href="tel:112" style="font-size:.875rem;font-weight:600;color:#C0392B;text-decoration:none;"
+               class="inline-flex items-center gap-1 hover:underline">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 5.55 5.55l1.32-1.34a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              112 — Tanzania Emergency
+            </a>
+
+            <a href="tel:116" style="font-size:.875rem;font-weight:600;color:#C0392B;text-decoration:none;"
+               class="inline-flex items-center gap-1 hover:underline">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 5.55 5.55l1.32-1.34a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              116 — Zanzibar Police
+            </a>
+
+            <a href="tel:182" style="font-size:.875rem;font-weight:600;color:#C0392B;text-decoration:none;"
+               class="inline-flex items-center gap-1 hover:underline">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 5.55 5.55l1.32-1.34a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              182 — Crisis Line (Türkiye)
+            </a>
+
+            <a href="tel:988" style="font-size:.875rem;font-weight:600;color:#C0392B;text-decoration:none;"
+               class="inline-flex items-center gap-1 hover:underline">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 5.55 5.55l1.32-1.34a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              988 — Lifeline (International)
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hrdim" />
+
+  <!-- ── Footer body ── -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+
+      <!-- Identity + social -->
+      <div>
+        <p style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#FAFAF7;margin-bottom:.2rem;">
+          Zanzibar MindCare
+        </p>
+        <p style="font-size:.68rem;color:#8B6F47;letter-spacing:.1em;text-transform:uppercase;font-family:'Source Serif 4',serif;">
+          Abdulfatah Khamis
+        </p>
+        <p class="disc mt-3">PhD Candidate · MSc Counseling Psychology</p>
+        <p class="disc">APA Member · YALI East Africa Alumnus</p>
+        <p class="disc mt-1">Zanzibar, Tanzania &amp; Türkiye</p>
+        <p class="disc">Serving clients worldwide</p>
+
+        <!-- Social links -->
+        <div class="flex gap-2 mt-5" aria-label="Social and academic profiles">
+
+          <a href="https://www.linkedin.com/in/abdulfatah-khamis-0603a962/"
+             class="slink" aria-label="LinkedIn profile"
+             target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+
+          <a href="https://www.researchgate.net/profile/Abdulfatah-Khamis-2"
+             class="slink" aria-label="ResearchGate profile"
+             target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <text x="7" y="17" font-family="serif" font-size="11"
+                    font-weight="bold" fill="currentColor" stroke="none">R</text>
+            </svg>
+          </a>
+
+          <a href="https://scholar.google.com/citations?user=4E32TW8AAAAJ&hl=en"
+             class="slink" aria-label="Google Scholar profile"
+             target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </a>
+
+          <a href="https://orcid.org/0009-0007-2661-4368"
+             class="slink" aria-label="ORCID profile"
+             target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <path d="M9 8h4a2 2 0 0 1 0 4H9"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Clinical nav -->
+      <nav aria-label="Footer — Clinical Services">
+        <p class="fh">Clinical Services</p>
+        <a href="services.html" class="fl">Individual Therapy</a>
+        <a href="services.html" class="fl">Trauma &amp; PTSD</a>
+        <a href="services.html" class="fl">GBV Survivor Support</a>
+        <a href="services.html" class="fl">Cross-Cultural Counseling</a>
+        <a href="services.html" class="fl">Online Therapy (Worldwide)</a>
+        <a href="contact.html"       class="fl">Book an Appointment</a>
+      </nav>
+
+      <!-- Academic nav -->
+      <nav aria-label="Footer — Academic & Consulting">
+        <p class="fh">Academic &amp; Consulting</p>
+        <a href="research.html"      class="fl">Publications</a>
+        <a href="research.html"      class="fl">Research Interests</a>
+        <a href="research.html"      class="fl">Teaching &amp; Supervision</a>
+        <a href="services.html#institutional" class="fl">Workshops &amp; Training</a>
+        <a href="services.html#institutional" class="fl">MHPSS Consulting</a>
+        <a href="contact.html"       class="fl">Collaboration Enquiries</a>
+      </nav>
+
+      <!-- Disclaimer -->
+      <div>
+        <p class="fh">Professional Disclaimer</p>
+        <p class="disc">
+          <strong>No therapeutic relationship</strong> is formed by accessing this website.
+          Content is for general information only and does not constitute professional
+          psychological advice, diagnosis, or treatment.
+        </p>
+        <p class="disc mt-3">
+          Always seek advice from a qualified mental health professional regarding any
+          mental health concern. Do not disregard professional guidance based on
+          information on this website.
+        </p>
+        <p class="disc mt-3">
+          <strong>Confidentiality:</strong> All client information is handled in strict
+          accordance with professional ethical codes and applicable data protection law.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <hr class="hrdim" />
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5
+              flex flex-col sm:flex-row justify-between items-center gap-2">
+    <p class="disc text-xs text-center sm:text-left">
+      &copy; <span id="yr"></span> Zanzibar MindCare &middot; Abdulfatah Khamis.
+      All rights reserved. Member of the American Psychological Association (APA).
+    </p>
+    <p class="disc text-xs text-center sm:text-right">
+      Designed for accessibility &amp; wellbeing.
+    </p>
+  </div>
+
+</footer>
+
+<script>
+  /* ── Auto year ── */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ── Set active nav link based on current page ── */
+  (function() {
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nl[href]').forEach(l => {
+      l.removeAttribute('aria-current');
+      const lhref = l.getAttribute('href').split('#')[0];
+      if (lhref === path || (path === '' && lhref === 'index.html')) {
+        l.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+
+
+  /* ── Sticky nav shadow ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  /* ── Active nav link highlight on scroll ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nl[href^="#"]');
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => {
+          l.removeAttribute('aria-current');
+          if (l.getAttribute('href') === '#' + e.target.id) {
+            l.setAttribute('aria-current', 'page');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => secObs.observe(s));
+
+  /* ── Mobile menu ── */
+  const hbg = document.getElementById('hbg');
+  const mob = document.getElementById('mob');
+  hbg.addEventListener('click', () => {
+    const open = hbg.getAttribute('aria-expanded') === 'true';
+    hbg.setAttribute('aria-expanded', String(!open));
+    mob.classList.toggle('open', !open);
+  });
+  mob.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hbg.setAttribute('aria-expanded', 'false');
+      mob.classList.remove('open');
+    });
+  });
+
+  /* ── Dropdown accessibility ── */
+  document.querySelectorAll('.drop-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      // Close all
+      document.querySelectorAll('.drop-btn[aria-expanded="true"]').forEach(b => {
+        if (b !== btn) b.setAttribute('aria-expanded', 'false');
+      });
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.drop-btn[aria-expanded="true"]')
+      .forEach(b => b.setAttribute('aria-expanded', 'false'));
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.drop-btn[aria-expanded="true"]').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.focus();
+      });
+    }
+  });
+
+  /* ── Fade-up on scroll ── */
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+    document.querySelectorAll('.fu').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.fu').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
